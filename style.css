@@ -2,11 +2,42 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
 }
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+.navbar a:hover {
+  background-color: #ff5722;
+  border-radius: 5px;
+}
+
 section {
   padding: 60px 20px;
   text-align: center;
@@ -26,20 +57,21 @@ section {
 .hero-content {
   max-width: 600px;
   text-align: center;
-  animation: fadeIn 2s ease-out forwards;
+  animation: fadeIn 3s ease-out forwards;
 }
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  opacity: 0;
+  opacity: 1;
 }
 .hero p {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .btn {
+  position: relative;
   padding: 15px 30px;
   background-color: #ff5772;
   color: white;
@@ -47,8 +79,26 @@ section {
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3 ease;
-  opacity: 0;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+  border-radius: 50%;
+  tranform: translate(-50% -50%);
+}
+.btn:hover::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(255, 255, 244);
 }
 .btn:hover {
   background-color: #e64a19;
@@ -64,8 +114,7 @@ section {
 }
 .feature-list {
   display: flex;
-  justify-content: space-between;
-  opacity: 0;
+  justify-content: space-around;
 }
 .feature-item {
   background-color: white;
@@ -103,5 +152,30 @@ section {
   to {
     opacity: 1;
     tranform: translateY(0);
+  }
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-sze: 1rem;
+  }
+  .features .feature-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature-item {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .navbar ul {
+    flex-direction: colum;
+    gap: 10px;
+  }
+  .navbar a {
+    font-size: 1rem;
   }
 }

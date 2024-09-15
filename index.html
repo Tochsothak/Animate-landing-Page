@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animate Landing Page</title>
     <link rel="stylesheet" href="./style.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+  </head>
 
-<body>
+  <body>
+    <!--Navigation bar -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
     <!--Hero section -->
     <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>Welcome to My Website</h1>
-            <p>Your succes start here. Explore our services and feature</p>
-            <a href="#features" class="btn">Learn More</a>
-        </div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Welcome to My Website</h1>
+        <p>Your succes start here. Explore our services and feature</p>
+        <a href="#features" class="btn" data-aos-delay="200">Learn More</a>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2>Our Features</h2>
-        <div class="feature-list">
-            <div class="feature-item">Fast and Secure</div>
-            <div class="feature-item">User Friendly</div>
-            <div class="feature-item">24/7 Support</div>
-        </div>
+      <h2>Our Features</h2>
+      <div class="feature-list">
+        <div class="feature-item">Fast and Secure</div>
+        <div class="feature-item">User Friendly</div>
+        <div class="feature-item">24/7 Support</div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2>Get in Touch</h2>
-        <p>
-            Contact us today to learn more about our service and how we can help you
-        </p>
-        <a href="#" class="btn">Contact Us</a>
+      <h2>Get in Touch</h2>
+      <p>
+        Contact us today to learn more about our service and how we can help you
+      </p>
+      <a href="#" class="btn">Contact Us</a>
     </section>
 
     <script src="./script.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
 </html>
