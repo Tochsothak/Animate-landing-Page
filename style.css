@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
+
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
@@ -14,24 +14,23 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 15px;
   display: flex;
   justify-content: center;
-  z-index: 1000;
+  z-index: 100;
 }
 .navbar ul {
-  display: flex;
   list-style: none;
+  display: flex;
   gap: 20px;
 }
-
 .navbar a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
+  padding: 10px;
+  transition: background-color 0.3 ease;
 }
 .navbar a:hover {
   background-color: #ff5722;
@@ -57,17 +56,17 @@ section {
 .hero-content {
   max-width: 600px;
   text-align: center;
-  animation: fadeIn 3s ease-out forwards;
+  animation: fadeIn 2s ease-out forwards;
 }
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  opacity: 1;
+  opacity: 0;
 }
 .hero p {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .btn {
@@ -78,43 +77,66 @@ section {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  overflow: hidden;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  overflow: hidden;
+  opacity: 0;
 }
-.btn::before {
+.hero .btn::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
   width: 300%;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
-  border-radius: 50%;
-  tranform: translate(-50% -50%);
+  height: 500%;
+  background-color: rgba(255, 205, 255, 0.1);
+  transition: width 0.4s ease height 0.4s ease, top 0.4s ease, left 0.4s ease;
+  border-radius: 45% 60% 50% 60%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(250, 50, 300, 0.3);
+  z-index: -100;
+}
+
+.btn:hover {
+  background-color: #e64a19;
 }
 .btn:hover::before {
   width: 0;
   height: 0;
   top: 50%;
   left: 50%;
-  background-color: rgba(255, 255, 244);
 }
-.btn:hover {
+
+/* Scroll Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+#scrollTopBtn:hover {
   background-color: #e64a19;
 }
-/* Features Section */
 
+/* Features Section */
 .features {
   background-color: #f4f4f4;
 }
 .features h2 {
   margin-bottom: 40px;
   font-size: 2rem;
+  opacity: 0;
 }
 .feature-list {
   display: flex;
   justify-content: space-around;
+  opacity: 0;
 }
 .feature-item {
   background-color: white;
@@ -147,6 +169,26 @@ section {
   background-color: #f4f4f4;
 }
 
+/* Parallax section effect */
+.parallax {
+  background-image: url("https://images.pexels.com/photos/3695354/pexels-photo-3695354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  height: 500px;
+  background-attachement: fiexed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.parallax-content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
 /* Animations */
 @keyframes fadeIn {
   to {
@@ -163,6 +205,7 @@ section {
   .hero-content p {
     font-sze: 1rem;
   }
+
   .features .feature-list {
     flex-direction: column;
     align-items: center;
@@ -171,11 +214,7 @@ section {
     width: 80%;
     margin-bottom: 20px;
   }
-  .navbar ul {
-    flex-direction: colum;
-    gap: 10px;
-  }
-  .navbar a {
-    font-size: 1rem;
+  .parallax {
+    background-attachement: scroll;
   }
 }
