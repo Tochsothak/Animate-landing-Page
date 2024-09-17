@@ -59,3 +59,11 @@ scrollTopBtn.addEventListener("click", () => {
         behavior: "smooth",
     });
 });
+//Scroll reveal
+const sr = ScrollReveal({
+    origin: "top",
+    distance: "80px",
+    reset: true,
+});
+sr.reveal(".hero-content", {});
+sr.reveal(".parallax", { delay: 100 });
